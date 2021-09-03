@@ -6,6 +6,8 @@ import java.beans.PropertyChangeSupport;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import observer.gui.BancoWindow;
+
 public class CuentaBanco {
 
 	private static Logger logger = LogManager.getRootLogger();
@@ -47,6 +49,7 @@ public class CuentaBanco {
 
 	public void depositarInterno(double monto) {
 		saldo += monto;
+		cambios.firePropertyChange("VISOR", true, false);
 	}
 	
 	@Override
@@ -56,5 +59,9 @@ public class CuentaBanco {
 
 	public void addPromo(PropertyChangeListener promo) {
 		cambios.addPropertyChangeListener(promo);
+	}
+
+	public void addVisor(PropertyChangeListener visor) {
+		cambios.addPropertyChangeListener(visor);
 	}
 }
