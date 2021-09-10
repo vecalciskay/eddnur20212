@@ -6,8 +6,6 @@ import java.beans.PropertyChangeSupport;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import observer.gui.BancoWindow;
-
 public class CuentaBanco {
 
 	private static Logger logger = LogManager.getRootLogger();
