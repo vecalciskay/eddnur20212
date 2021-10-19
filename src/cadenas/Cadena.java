@@ -11,8 +11,8 @@ import java.util.Iterator;
  * @param <T>
  */
 public class Cadena<T> implements Iterable<T> {
-	private Nodo<T> raiz;
-	private int tamano;
+	protected Nodo<T> raiz;
+	protected int tamano;
 	
 	public Cadena() {
 		tamano = 0;
@@ -80,6 +80,24 @@ public class Cadena<T> implements Iterable<T> {
 		
 		actual.setSiguiente(actual.getSiguiente().getSiguiente());
 		tamano--;
+	}
+	
+	public T get(int posicion) {
+		if (posicion >= tamano)
+			return null;
+		
+		if (posicion == 0) {
+			return raiz.getContenido();
+		}
+		
+		int numeroItem = 0; 
+		Nodo<T> actual = raiz;
+		while(actual != null && numeroItem < posicion) {
+			actual = actual.getSiguiente();
+			numeroItem++;
+		}
+		
+		return actual.getContenido();
 	}
 	
 	@Override
