@@ -100,6 +100,14 @@ public class Cadena<T> implements Iterable<T> {
 		return actual.getContenido();
 	}
 	
+	public T buscar(T id) {
+		for (T o : this) {
+			if (o.equals(id))
+				return o;
+		}
+		return null;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder result = new StringBuilder();
@@ -117,7 +125,7 @@ public class Cadena<T> implements Iterable<T> {
 		return new IteradorCadena<>(this);
 	}
 	
-	static class Nodo<T> {
+	public static class Nodo<T> {
 
 		private T contenido;
 		private Nodo<T> siguiente;
