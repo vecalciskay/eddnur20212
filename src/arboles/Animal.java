@@ -1,12 +1,17 @@
 package arboles;
 
-public class Animal extends ObjetoIdentificable {
+public class Animal implements ObjetoIdentificable {
     private String nombre;
     private int numeroPatas;
     private boolean tieneCola;
+    protected String id;
 
+
+    public String getId(){
+        return id;
+    }
     public Animal(String id, String nombre, int numeroPatas, boolean tieneCola) {
-        super(id);
+        this.id = id;
         this.nombre = nombre;
         this.numeroPatas = numeroPatas;
         this.tieneCola = tieneCola;
@@ -14,10 +19,6 @@ public class Animal extends ObjetoIdentificable {
 
     @Override
     public String toString() {
-        return "Animal{" +
-                "nombre='" + nombre + '\'' +
-                ", numeroPatas=" + numeroPatas +
-                ", tieneCola=" + tieneCola +
-                '}';
+        return nombre + '|' + numeroPatas;
     }
 }

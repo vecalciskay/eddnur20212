@@ -1,14 +1,7 @@
 package arboles;
 
-public class ObjetoIdentificable {
+public interface ObjetoIdentificable {
 
-    protected String id;
 
-    public ObjetoIdentificable(String id){
-        this.id = id;
-    }
-
-    public String getId(){
-        return id;
-    }
+    public String getId();
 }
